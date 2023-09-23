@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_app/config/menu/menu_item.dart';
+import 'package:widgets_app/presentation/screens/buttons/button_screen.dart';
+import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,7 +10,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: false,
         title: const Text('Flutter + Material 3'),
       ),
       body: const _HomeView(),
@@ -47,13 +48,18 @@ class _CustomListTile extends StatelessWidget {
     return ListTile(
       leading: Icon(menuItem.icon, color: colors.primary),
       trailing: Icon(
-        Icons.arrow_back_ios_rounded,
+        Icons.arrow_forward_ios_outlined,
         color: colors.primary,
       ),
       title: Text(menuItem.title),
       subtitle: Text(menuItem.subTitle),
       onTap: () {
-        //todo navegar a otras pantallas
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const ButtonsScreen(),
+          ),
+        );
+        // Navigator.pushNamed(context, menuItem.link);
       },
     );
   }
