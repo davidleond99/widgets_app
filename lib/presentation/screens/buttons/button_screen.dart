@@ -100,12 +100,18 @@ class CustomButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: Material(
         shadowColor: Colors.black,
-        color: colors.primary,
         child: InkWell(
           onTap: () {},
-          child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: Text(
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+              colors.primary,
+              colors.secondary,
+              Colors.yellow,
+              Colors.green,
+            ])),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: const Text(
               'Hola Mundo',
               style: TextStyle(color: Colors.white),
             ),
